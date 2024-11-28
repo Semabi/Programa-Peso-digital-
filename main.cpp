@@ -3,13 +3,13 @@
 
 using namespace std;
 
-// Lista de productos y sus precios por kilo
-string productos[] = {"Arroz", "Azúcar", "Papa", "Maíz", "Lentejas", "Frijol", "Tomate", "Ajo", "Cebolla", "Harina"};
-int preciosPorKilo[] = {3000, 4000, 2000, 2500, 5000, 6000, 3500, 8000, 4500, 2800}; 
+// Lista de los productos y sus precios por kilo
+string productos[] = {"Arroz", "Azucar", "Papa", "Maiz", "Lentejas", "Frijol", "Tomate", "Ajo", "Cebolla", "Harina", "Carne de cerdo", "Pollo", "Pescado", "Queso", "Aguacate"};
+double preciosPorKilo[] = {3000, 4000, 2000, 2500, 5000, 6000, 3500, 8000, 4500, 2800, 23000, 17000, 15000, 10000, 9000}; 
 
 void mostrarMenuProductos() {
-    cout << "\nLista de productos disponibles:" << endl;
-    for (int i = 0; i < 10; i++) {
+    cout << "Lista de productos disponibles:" << endl;
+    for (int i = 0; i < 15; i++) {
         cout << i + 1 << ". " << productos[i] << " - Precio por kilo: $" << preciosPorKilo[i] << " pesos " << endl;
     }
     cout << "0. Finalizar compra" << endl;
@@ -17,22 +17,22 @@ void mostrarMenuProductos() {
 
 int main() {
     int opcionProducto;
-    float pesoGramos, valorTotal = 0;
+    double pesoGramos, valorTotal = 0;
 
-    cout << "--- Bienvenido a la Tienda ---" << endl;
+    cout << " Bienvenido a la Tienda " << endl;
 
     while (true) {    
         mostrarMenuProductos();
   
-        cout << "Seleccione el número del producto (o 0 para finalizar): ";
+        cout << "Seleccione el numero del producto (o 0 para finalizar): ";
         cin >> opcionProducto;
   
         if (opcionProducto == 0) {
             break;
         }
  
-        if (opcionProducto < 1 || opcionProducto > 10) {
-            cout << "Opción inválida. Intente nuevamente." << endl;
+        if (opcionProducto < 1 || opcionProducto > 15) {
+            cout << "Opcion invalida. Intente nuevamente." << endl;
             continue;
         }
 
@@ -40,17 +40,17 @@ int main() {
         cin >> pesoGramos;
   
         if (pesoGramos <= 0) {
-            cout << "El peso debe ser un número positivo. Intente nuevamente." << endl;
+            cout << "El peso debe ser un numero positivo. Intente nuevamente." << endl;
             continue;
         }
  
-        float precioPorKilo;
+        double precioPorKilo;
         while (true) {
             cout << "Ingrese el precio por kilo en pesos: ";
             cin >> precioPorKilo;
  
             if (precioPorKilo <= 0) {
-                cout << "El precio debe ser un número positivo. Intente nuevamente." << endl;
+                cout << "El precio debe ser un numero positivo. Intente nuevamente." << endl;
                 continue;
             }
    
@@ -62,7 +62,7 @@ int main() {
             }
         }
   
-        float valorProducto = (pesoGramos / 1000) * precioPorKilo;
+        double valorProducto = (pesoGramos / 1000) * precioPorKilo;
         valorTotal += valorProducto;
     
         cout << fixed << setprecision(2);
@@ -70,7 +70,7 @@ int main() {
              << productos[opcionProducto - 1] << " es: $" << valorProducto << " pesos." << endl;
     }
   
-    cout << "\nEl total de su compra es: $" << valorTotal << " pesos." << endl;
+    cout << "El total de su compra es: $" << valorTotal << " pesos." << endl;
     cout << "Gracias por su compra. ¡Vuelva pronto!" << endl;
 
     return 0;

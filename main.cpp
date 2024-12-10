@@ -1,10 +1,7 @@
 #include <iostream>
-#include <iomanip>
-
 using namespace std;
-
 // Lista de los productos y sus precios por kilo
-string productos[] = {"Arroz", "Azucar", "Papa", "Maiz", "Lentejas", "Frijol", "Tomate", "Ajo", "Cebolla", "Harina", "Carne de cerdo", "Pollo", "Pescado", "Queso", "Aguacate"};
+string productos[]= {"Arroz", "Azucar", "Papa", "Maiz", "Lentejas", "Frijol", "Tomate", "Ajo", "Cebolla", "Harina", "Carne de cerdo", "Pollo", "Pescado", "Queso", "Aguacate"};
 double preciosPorKilo[] = {3000, 4000, 2000, 2500, 5000, 6000, 3500, 8000, 4500, 2800, 23000, 17000, 15000, 10000, 9000}; 
 
 void mostrarMenuProductos() {
@@ -65,7 +62,7 @@ int main() {
         double valorProducto = (pesoGramos / 1000) * precioPorKilo;
         valorTotal += valorProducto;
     
-        cout << fixed << setprecision(2);
+        
         cout << "El valor a pagar por " << pesoGramos << " gramos de "
              << productos[opcionProducto - 1] << " es: $" << valorProducto << " pesos." << endl;
     }
